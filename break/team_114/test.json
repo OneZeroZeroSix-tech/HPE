@@ -1,0 +1,64 @@
+
+{
+"target_team": 114,
+"type": "correctness",
+"commands": [
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+{"program": "stor", "args": [./stor -u alice -f notes create]},
+{"program": "stor", "args": [printf 'admin\x00secret' | ./stor write -u alice -k secret123 -f notes]},
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+}
+
+
+
+{
+"target_team": 114,
+"type": "correctness",
+"commands": [
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+{"program": "stor", "args": [./stor -u alice -f notes create]},
+{"program": "stor", "args": [printf 'admin\x08secret' | ./stor write -u alice -k secret123 -f notes]},
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+}
+
+
+
+{
+"target_team": 114,
+"type": "correctness",
+"commands": [
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+{"program": "stor", "args": [./stor -u alice -f notes create]},
+{"program": "stor", "args": [printf '\n\n\n\n\n\n\n\n\n\n\n\n' | ./stor write -u alice -k secret123 -f notes3 -f notes]},
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+}
+
+
+
+{
+"target_team": 114,
+"type": "correctness",
+"commands": [
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+{"program": "stor", "args": [./stor -u alice -f notes create]},
+{"program": "stor", "args": [printf "adm\x1Asec" | ./stor write -u alice -k secret123 -f notes]},
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+}
+
+
+
+{
+"target_team": 114,
+"type": "correctness",
+"commands": [
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+{"program": "stor", "args": [./stor -u alice -f notes create]},
+{"program": "stor", "args": [printf "adm\x03sec" | ./stor write -u alice -k secret123 -f notes]},
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+}
+
+
+
+
+
+
