@@ -1,0 +1,69 @@
+
+{
+    printf 'admin\x00secret' > payload_null.bin
+"target_team": 114,
+"type": "correctness",
+"commands": [
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+{"program": "stor", "args": [./stor -u alice -f notes create]},
+{"program": "stor", "args": [./stor write -u alice -k secret123 -f notes -i payload_null.bin]},
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+}
+
+
+
+{
+    printf 'admin\x08secret' > payload_null.bin
+"target_team": 114,
+"type": "correctness",
+"commands": [
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+{"program": "stor", "args": [./stor -u alice -f notes create]},
+{"program": "stor", "args": [./stor write -u alice -k secret123 -f notes -i payload_null.bin]},
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+}
+
+
+
+{
+    printf '\n\n\n\n\n\n\n\n\n\n\n\n' > payload_null.bin
+"target_team": 114,
+"type": "correctness",
+"commands": [
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+{"program": "stor", "args": [./stor -u alice -f notes create]},
+{"program": "stor", "args": [./stor write -u alice -k secret123 -f notes -i payload_null.bin]},
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+}
+
+
+
+{
+    printf 'adm\x1Asec' > payload_null.bin
+"target_team": 114,
+"type": "correctness",
+"commands": [
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+{"program": "stor", "args": [./stor -u alice -f notes create]},
+{"program": "stor", "args": [./stor write -u alice -k secret123 -f notes -i payload_null.bin]},
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+}
+
+
+
+{
+    printf 'adm\x03sec' > ayload_null.bin
+"target_team": 114,
+"type": "correctness",
+"commands": [
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+{"program": "stor", "args": [./stor -u alice -f notes create]},
+{"program": "stor", "args": [./stor write -u alice -k secret123 -f notes -i payload_null.bin]},
+{"program": "stor", "args": [./stor -u alice -k secret123 register]},
+}
+
+
+
+
+
+
