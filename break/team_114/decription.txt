@@ -1,1 +1,51 @@
+Correctness Bug 1: 
 
+{"program": "stor", "args": [printf 'admin\x00secret' | ./stor write -u alice -k secret123 -f notes]}, 
+
+{"program": "stor", "args": [./stor -u alice -k secret123 register]} 
+
+ Output is manipulated 
+
+ 
+
+Correctness Bug 2: 
+
+{"program": "stor", "args": [printf 'admin\x08secret' | ./stor write -u alice -k secret123 -f notes]}, 
+
+{"program": "stor", "args": [./stor -u alice -k secret123 register]}, 
+
+ Output is manipulated 
+
+ 
+
+Correctness Bug 3: 
+
+{"program": "stor", "args": [printf '\n\n\n\n\n\n\n\n\n\n\n\n' | ./stor write -u alice -k secret123 -f notes3 -f notes]}, 
+
+{"program": "stor", "args": [./stor -u alice -k secret123 register]} 
+
+Output is manipulated 
+
+ 
+
+Correctness Bug 4: 
+
+{"program": "stor", "args": [printf "adm\x1Asec" | ./stor write -u alice -k secret123 -f notes]}, 
+
+{"program": "stor", "args": [./stor -u alice -k secret123 register] 
+
+Output is manipulated 
+
+ 
+
+Correctness Bug 5: 
+
+{"program": "stor", "args": [printf "adm\x03sec" | ./stor write -u alice -k secret123 -f notes]}, 
+
+{"program": "stor", "args": [./stor -u alice -k secret123 register] 
+
+Output is manipulated 
+
+This is design bug because   printf outputs adm\x03sec 
+
+Terminal interprets \x03 as Ctrl‑C 
