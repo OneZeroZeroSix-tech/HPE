@@ -1,0 +1,17 @@
+{
+  "target_team": 114,
+  "type": "correctness",
+  "commands": [
+    {"program":"stor","args":["-u","alice","-k","secret123","register"]},
+    {"program":"stor","args":["-u","alice","-f","notes","create"]},
+    {"program":"sh","args":["-c","printf 'adm\\x03sec' > payload_etx.bin"]},
+    {"program":"stor","args":["-u","alice","-k","secret123","-f","notes","-i","payload_etx.bin","write"]},
+    {"program":"stor","args":["-u","alice","-k","secret123","register"]}
+  ],
+  "expected": [
+    {"exit":0},
+    {"exit":0},
+    {"exit":0},
+    {"stdout":"invalid","exit":255}
+  ]
+}
