@@ -1,1 +1,3 @@
 Output is different from input text
+Expected output: admin\\x00secret
+Actual output: admin\secret
